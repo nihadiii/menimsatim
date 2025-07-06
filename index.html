@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> mikaaa </title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Salam! mirini cox isteyiresen.</h1>
+    <p> amma duzun de</p>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hee və Yox Oyunu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef6ff;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .my-button {
+      background-color: #003366;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #heeBtn {
+      transition: transform 0.3s ease;
+    }
+
+    #finalMessage {
+      font-size: 28px;
+      font-weight: bold;
+      color: darkgreen;
+      display: none;
+      margin-top: 10px;
+    }
+
+    #message {
+      font-size: 24px;
+      color: #003366;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="button-container">
+    <button id="heeBtn" class="my-button" onclick="heeClick()">Hee</button>
+    <button id="yoxBtn" class="my-button" onclick="yoxClick()">Yox</button>
+  </div>
+
+  <div id="finalMessage">Axır ki!</div>
+  <div id="message">Təbriklər!</div>
+
+  <script>
+    let heeScale = 1;
+    let gapSize = 20;
+    let yoxClickCount = 0;
+
+    const yoxWords = [
+      "Söz tapmıram deməyə",
+      "Ayıb olsun",
+      "Niyəə axı",
+      "Mən sənə nə eləmişəm",
+      "Ciddisən?",
+      "Heçnə demirəm day",
+      "Elə bu?",
+      "Baş görüm",
+      "Bunu da bas baxım",
+      "Hahahha"
+    ];
+
+    function heeClick() {
+      const message = document.getElementById("message");
+      const final = document.getElementById("finalMessage");
+
+      if (yoxClickCount >= 10) {
+        final.style.display = "block";
+      }
+
+      message.style.display = "block";
+    }
+
+    function yoxClick() {
+      const heeBtn = document.getElementById("heeBtn");
+      const yoxBtn = document.getElementById("yoxBtn");
+      const container = document.querySelector(".button-container");
+
+      // Böyüt Hee düyməsini
+      heeScale *= 1.2;
+      heeBtn.style.transform = `scale(${heeScale})`;
+
+      // Artır boşluğu
+      gapSize += 20;
+      container.style.gap = `${gapSize}px`;
+
+      // Yox düyməsinin üzərindəki yazını dəyiş
+      if (yoxClickCount < yoxWords.length) {
+        yoxBtn.textContent = yoxWords[yoxClickCount];
+      }
+
+      yoxClickCount++;
+    }
+  </script>
+
+</body>
+</html>
